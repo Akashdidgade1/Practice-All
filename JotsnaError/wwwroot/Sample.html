@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="css/Styles.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>Age Calculator sell</h1>
+    <main class="container">
+        <div class="input">
+            <!--BIRTHDAY-->
+            <label>Enter Your Birthdate :</label>
+            <input type="date" id="birthdate" />
+            <label>Enter your name   :</label>
+            <input type="text" id="txt1" />
+        </div>
+        <ul>
+            <!--DISPLAY OUTPUT-->
+            <li><span id="years"></span>Years</li>
+            <li><span id="months"></span>Months</li>
+            <li><span id="days"></span>Days</li>
+            <li><span id="hours"></span>Hours</li>
+            <li><span id="minutes"></span>Minutes</li>
+            <li><span id="seconds"></span>Seconds</li>
+        </ul>
+        <!--BUTTONS-->
+        <div class="btns">
+            <button onclick="Calculate()">Calculate</button>
+            <button onclick="reset()">Reset</button>
+        </div>
+        <!--<script src="js/Script.js"></script>-->
+    </main>
+
+    <!--<script>
+        function Calculate(){
+                //Input Birth date
+                let birthdate = new Date(document.getElementById('birthdate').value);
+
+                //getTime : returns the number of milliseconds
+                let now = new Date();
+                let ageInMs = now.getTime() - birthdate.getTime();
+
+                let ageInS = ageInMs / 1000;
+                let ageInMins = ageInS / 60;
+                let ageInHrs = ageInMins / 60;
+                let ageInDays = ageInHrs / 24;
+                let ageInMonths = ageInDays / 30.4375;
+                let ageInyears = ageInMonths / 12;
+
+                document.querySelector('#years').innerHTML = Math.floor(ageInYears);
+                document.querySelector('#months').innerHTML = Math.floor(ageInMonths % 12);
+                document.querySelector('#days').innerHTML = Math.floor(ageInDays % 30.4375);
+                document.querySelector('#hours').innerHTML = Math.floor(ageInHrs % 24);
+                document.querySelector('#minutes').innerHTML = Math.floor(ageInMins % 60);
+                document.querySelector('#seconds').innerHTML = Math.floor(ageInS % 60);
+                document.querySelector('#seconds').style.borderBottom = '1px grey solid';
+
+        }
+        function reset() {
+            window.location.reload();
+        }
+
+    </script>-->
+
+    <script src="js/JavaScript.js"></script>
+</body>
+</html>

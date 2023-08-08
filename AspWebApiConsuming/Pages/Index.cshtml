@@ -1,0 +1,83 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div class="container">
+    <input type="button" id="btnAll" value="Get All Friends">
+    <br /><br />
+    <input id="txtId" type="text"/>
+    <input id="btnSingle" type="button" value="Get SpecifiC Friends">
+    <br />
+    <br />
+    <ul id="friends"></ul>
+    <div id="FriendsDetails"></div>
+</div>
+
+
+
+
+
+<div class="container">
+    <table class="table table-bordered table-stripped table-hover" id="table">
+        <tbody>
+            <tr>
+                <th>id</th>
+                <th>FirstName</th>
+                <th>Last Name</th>
+                <th>Age</th>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<script>
+
+    var message = {
+        getAllFriends: function () {
+            debugger;
+            var obj = "";
+            var url: "https://localhost:7132/api/Friends";
+            window.manager.GetAPI(url, onSuccess, onFailed)
+
+            function onSuccess(jsonData) {
+            
+                obj = jsonData;
+                $.each(jsonData, function (i, item) {
+                    var rows = "<tr>" +
+                        "<td> id=id" + item.id + "</td>" +
+                        "<td> id=id" + item.firstname + "</td>" +
+                        "<td> id=id" + item.lastname + "</td>" +
+                        "<td> id=id" + item.age + "</td>";
+                    $("#table").append(rows);
+                });
+            }
+            function onFailed(error) {
+                window.alert(error.statusText)
+            }
+            return obj;
+        }
+                GetAPI: function (url, successCallback, errorCallback) {
+            $.ajax({
+                type: "GET",
+                url: url,
+                dataType: "json",
+                success: successCallback,
+                error: errorCallback
+            })
+        }
+    }
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+<script src="~/js/javascript.js"></script>
